@@ -1,0 +1,182 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context="com.unify.ucevent.EventActivity"
+    android:clickable="false"
+    android:background="@color/background_material_light">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ff2397f3"
+        android:id="@+id/linearLayout">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:contentDescription="@string/setting_ic"
+            android:src="@drawable/ic_action_settings"
+            android:background="#00000000"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="goTosettings" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView"
+            android:src="@drawable/uc_event_logo"
+            android:contentDescription="@string/app_logo"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton2"
+            android:src="@drawable/ic_action_new"
+            android:background="#00000000"
+            android:contentDescription="@string/add_new"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="goToNewEvent" />
+
+    </LinearLayout>
+
+        <TextView android:id="@+id/name_of_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:typeface="monospace"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:text="Kickback at Edgar's!"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@+id/linearLayout"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_of_event"
+            android:id="@+id/details_button_viewgroup"
+            android:foregroundGravity="left">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="example number"
+                android:id="@+id/attending_of_event"
+                android:gravity="left|center"
+                android:layout_margin="2.5dp"
+                android:layout_marginLeft="5dp"/>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/details_button_viewgroup"
+            android:gravity="left|center|fill_vertical"
+            android:id="@+id/details_date_viewgroup">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_access_time_black_24dp"
+                android:layout_margin="2.5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/date_of_event"
+                android:text="Date of Event"
+                android:layout_margin="2.5dp"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/time_of_event"
+                android:text="Time of event"
+                android:layout_margin="2.5dp"
+                android:textSize="20sp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|left|center|fill_vertical"
+            android:id="@+id/details_location_viewgroup"
+            android:layout_below="@+id/details_date_viewgroup"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:paddingLeft="-3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:layout_margin="2.5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/location_of_event"
+                android:text="9500 Gilman Dr, La Jolla, CA 92093"
+                android:layout_margin="2.5dp"
+                android:textSize="20sp"
+                android:layout_gravity="top|left|bottom|right" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description of the Event"
+            android:layout_below="@+id/details_location_viewgroup"
+            android:id="@+id/event_description"
+            android:layout_margin="10dp"
+            android:textSize="24sp"/>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
+
+            <!-- Only show this button if you are the owner of the event -->
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/details_goback"
+                android:text="Go Back to Events"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="5dp"
+                android:background="#33CCFF"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:onClick="Finish"/>
+
+        </RelativeLayout>
+
+
+
+</RelativeLayout>
